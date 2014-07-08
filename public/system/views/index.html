@@ -1,3 +1,7 @@
 <section data-ng-controller="IndexController">
-    <h1 mean-token="'home-default'">This is the home view</h1>
+    <h1 mean-token="'home-default'" data-ng-hide="global.authenticated">This is the home view</h1>
+
+    <div data-ng-show="global.authenticated">
+    	<h1>Welcome user!</h1>
+    </div>
 </section>
