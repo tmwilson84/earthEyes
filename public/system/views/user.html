@@ -1,0 +1,123 @@
+<section data-ng-controller="UserController">
+    
+	<div class="col-md-6" data-ng-init="getUser()" data-ng-show="fullName">
+		<h1>Welcome, {{fullName}}!</h1>
+		
+		<form ng-submit="updateUser()" class="signup form-horizontal">
+	        <div class="form-group">
+	            <label for="first_name" class="col-md-4 control-label">First Name</label>
+	            <div class="col-md-8">
+	                <input id="first_name" type="text" name="first_name" placeholder="First Name" class="form-control" ng-model="user.name.first"/>
+	            </div>
+	        </div>
+	        <div class="form-group">
+	            <label for="last_name" class="col-md-4 control-label">Last Name</label>
+	            <div class="col-md-8">
+	                <input id="last_name" type="text" name="last_name" placeholder="Last Name" class="form-control" ng-model="user.name.last"/>
+	            </div>
+	        </div>
+	        <div class="form-group">
+	            <label for="email" class="col-md-4 control-label">Email</label>
+	            <div class="col-md-8">
+	                <input id="email" type="email" name="email" placeholder="Email" class="form-control" ng-model="user.email"/>
+	            </div>
+	        </div>
+	        <div class="form-group">
+	            <label for="username" class="col-md-4 control-label">Username</label>
+	            <div class="col-md-8">
+	                <input id="username" type="text" name="username" placeholder="Username" class="form-control" ng-model="user.username"/>
+	            </div>
+	        </div>
+	        
+	        <div class="form-group">
+	            <label for="dob" class="col-md-4 control-label">Birth Date</label>
+	            <div class="col-md-8">
+	                <input id="dob" type="date" name="dob" placeholder="mm/dd/yyyy" class="form-control" ng-model="user.dob" data-birth-date />
+	            </div>
+	        </div>
+	        <div class="form-group">
+	            <label for="gender" class="col-md-4 control-label">Gender</label>
+
+	            <div class="col-md-8">
+	                <div class="radio col-md-6">
+	                  <label>
+	                    <input type="radio" name="gender" id="gender_m" value="Male" ng-model="user.gender">
+	                    Male
+	                  </label>
+	                </div>
+	                <div class="radio col-md-6">
+	                  <label>
+	                    <input type="radio" name="gender" id="gender_f" value="Female" ng-model="user.gender">
+	                    Female
+	                  </label>
+	                </div>
+	            </div>
+	        </div>
+	        <div class="form-group">
+	            <label for="country" class="col-md-4 control-label">Country</label>
+	            <div class="col-md-8">
+	                <input id="country" type="text" name="country" placeholder="Country" class="form-control" ng-model="user.location.country"/>
+	            </div>
+	        </div>
+	        <div class="form-group">
+	            <label for="state" class="col-md-4 control-label">State</label>
+	            <div class="col-md-8">
+	                <input id="state" type="text" name="state" placeholder="State" class="form-control" ng-model="user.location.state"/>
+	            </div>
+	        </div>
+	        <div class="form-group">
+	            <label for="city" class="col-md-4 control-label">City</label>
+	            <div class="col-md-8">
+	                <input id="city" type="text" name="city" placeholder="City" class="form-control" ng-model="user.location.city"/>
+	            </div>
+	        </div>
+	        <div class="form-group">
+	            <label for="secretQuestion" class="col-md-4 control-label">Secret Question</label>
+	            <div class="col-md-8">
+	                <input id="secretQuestion" type="text" name="secretQuestion" placeholder="Secret Question" class="form-control" ng-model="user.secretQ.secretQuestion"/>
+	            </div>
+	        </div>
+	        <div class="form-group">
+	            <label for="secretAnswer" class="col-md-4 control-label">Secret Answer</label>
+	            <div class="col-md-8">
+	                <input id="secretAnswer" type="text" name="secretAnswer" placeholder="Secret Answer" class="form-control" ng-model="user.secretQ.secretAnswer"/>
+	            </div>
+	        </div>
+	        <div class="form-group">
+	            <label for="facebook_id" class="col-md-4 control-label">Facebook ID</label>
+	            <div class="col-md-8">
+	                <input id="facebook_id" type="text" name="facebook_id" placeholder="Facebook ID" class="form-control" ng-model="user.socialNetwork.facebook.id"/>
+	            </div>
+	        </div>
+	        <div class="form-group">
+	            <label for="twitter_id" class="col-md-4 control-label">Twitter ID</label>
+	            <div class="col-md-8">
+	                <input id="twitter_id" type="text" name="twitter_id" placeholder="Twitter ID" class="form-control" ng-model="user.socialNetwork.twitter.id"/>
+	            </div>
+	        </div>
+	        <div class="form-group">
+	            <label for="youtube_id" class="col-md-4 control-label">Youtube ID</label>
+	            <div class="col-md-8">
+	                <input id="youtube_id" type="text" name="youtube_id" placeholder="Facebook ID" class="form-control" ng-model="user.socialNetwork.youtube.id"/>
+	            </div>
+	        </div>
+
+	        <div class="form-group">
+	            <label for="interests" class="col-md-4 control-label">Interests</label>
+	            <div class="col-md-8">
+	                <input id="interests" type="text" name="interests" placeholder="Cricket, Chess, film-noir, movie-making" class="form-control" ng-model="user.interests"/>
+	            </div>
+	        </div>
+	        
+
+	        <div class="row">
+	            <div class="col-md-offset-4 col-md-6">
+	                <button type="submit" class="btn btn-success">Update</button> 
+	                <span data-ng-show="success">Update success!</span>
+	            </div>
+	        </div>
+	    </form>
+
+	</div>
+
+</section>
