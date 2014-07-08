@@ -9,6 +9,8 @@ module.exports = function(app, passport) {
         .get(users.signout);
     app.route('/users/me')
         .get(users.me);
+    app.route('/users/me/:userId')
+        .put(users.update);
 
     // Setting up the users api
     app.route('/register')
@@ -28,8 +30,15 @@ module.exports = function(app, passport) {
         .post(passport.authenticate('local', {
             failureFlash: true
         }), function(req, res) {
+            var response = {};
+            response._id = req.user._id;
+            response.email = req.user.email;
+            response.name = req.user.name;
+            response.first_name = req.user.name.first;
+            response.last_name = req.user.name.last;
+
             res.send({
-                user: req.user,
+                user: response,
                 redirect: (req.user.roles.indexOf('admin') !== -1) ? req.get('referer') : false
             });
         });
