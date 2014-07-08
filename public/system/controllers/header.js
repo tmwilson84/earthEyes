@@ -3,6 +3,9 @@
 angular.module('mean.system').controller('HeaderController', ['$scope', '$rootScope', 'Global', 'Menus',
     function($scope, $rootScope, Global, Menus) {
         $scope.global = Global;
+        if($scope.global.user.name !== undefined) {
+            $scope.global.fullName = $scope.global.user.name.first +' '+ $scope.global.user.name.last;
+        }
         $scope.menus = {};
 
         // Default hard coded menu items for main menu
@@ -30,7 +33,8 @@ angular.module('mean.system').controller('HeaderController', ['$scope', '$rootSc
 
             $scope.global = {
                 authenticated: !! $rootScope.user,
-                user: $rootScope.user
+                user: $rootScope.user,
+                fullName: $rootScope.user.first_name +' '+ $rootScope.user.last_name
             };
         });
 
