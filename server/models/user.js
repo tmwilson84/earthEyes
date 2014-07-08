@@ -20,8 +20,14 @@ var mongoose = require('mongoose'),
  */
 var UserSchema = new Schema({
     name: {
-        type: String,
-        required: true
+        first: {
+            type: String,
+            required: true
+        },
+        last: {
+            type: String,
+            required: true
+        }
     },
     email: {
         type: String,
@@ -41,6 +47,57 @@ var UserSchema = new Schema({
         type: String,
         validate: [validatePresenceOf, 'Password cannot be blank']
     },
+    dob: {
+        type: String
+    },
+    gender: {
+        type: String
+    },
+    location: {
+        country: {
+            type: String
+        },
+        state: {
+            type: String
+        },
+        city: {
+            type: String
+        }
+    },
+    secretQ: {
+        secretQuestion: {
+            type: String
+        },
+        secretAnswer: {
+            type: String  
+        }
+    },
+    socialNetwork: {
+        facebook: {
+            id: {
+              type: String
+            }
+        },
+        twitter: {
+            id: {
+              type: String
+            }
+        },
+        youtube: {
+            id: {
+              type: String
+            }
+        }
+    },
+    network: {
+        following: [],
+        followers: []
+    },
+    interests: [],
+    rights: {
+        type: Array,
+        default: ['users']
+    },
     provider: {
         type: String,
         default: 'local'
@@ -50,7 +107,11 @@ var UserSchema = new Schema({
     twitter: {},
     github: {},
     google: {},
-    linkedin: {}
+    linkedin: {},
+    lastLoggedOn: {
+        type: Date,
+        default: Date.now
+    }
 });
 
 /**
