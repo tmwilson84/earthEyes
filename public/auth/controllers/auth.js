@@ -34,19 +34,26 @@ angular.module('mean.controllers.login', [])
             };
         }
     ])
-    .controller('RegisterCtrl', ['$scope', '$rootScope', '$http', '$location',
-        function($scope, $rootScope, $http, $location) {
+    .controller('RegisterCtrl', ['$scope', '$rootScope', '$http', '$location', 'formatDate',
+        function($scope, $rootScope, $http, $location, formatDate) {
             $scope.user = {};
 
             $scope.register = function() {
                 $scope.usernameError = null;
                 $scope.registerError = null;
                 $http.post('/register', {
+                    first_name: $scope.user.first_name,
+                    last_name: $scope.user.last_name,
                     email: $scope.user.email,
                     password: $scope.user.password,
                     confirmPassword: $scope.user.confirmPassword,
                     username: $scope.user.username,
-                    name: $scope.user.name
+                    dob: formatDate($scope.user.dob),
+                    gender: $scope.user.gender,
+                    country: $scope.user.country,
+                    state: $scope.user.state,
+                    city: $scope.user.city
+
                 })
                     .success(function() {
                         // authentication OK
